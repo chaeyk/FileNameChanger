@@ -68,7 +68,8 @@ namespace FileNameChanger
 
         private static DateTime DateFromFile(string filename)
         {
-            DateTime date = File.GetCreationTime(filename);
+            //DateTime date = File.GetCreationTime(filename);
+            DateTime date = File.GetLastWriteTime(filename);
 
             if (date.Year < 1900)
                 throw new Exception("Failed to get creation time of " + filename);

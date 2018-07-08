@@ -1,3 +1,5 @@
 /FileNameChanger/obj
 /FileNameChanger/bin
 /*.suo
+/.sonarqube
+/.vs
