@@ -104,10 +104,7 @@ namespace FileNameChanger
                     return;
                 }
             }
-            catch (FormatException)
-            {
-                // ignore
-            }
+            catch {} // ignore
 
             foreach (ListViewItem i in lvFiles.Items)
             {
@@ -200,7 +197,7 @@ namespace FileNameChanger
             string ext = Path.GetExtension(filename);
             string name = date.ToString("yyyyMMddHHmmss");
 
-            string newFilename = path + "\\" + name + ext;
+            string newFilename = $"{path}\\{name}{ext}";
 
             if (!filename.Equals(newFilename))
             {
@@ -213,7 +210,7 @@ namespace FileNameChanger
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("File rename failed [" + filename + " -> " + newFilename + "]", e);
+                    throw new Exception($"File rename failed [{filename} -> {newFilename}]", e);
                 }
             }
         }
